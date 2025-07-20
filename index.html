@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fashique</title>
+   <!--Tailwind css-->
+    <link  href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!--Link Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+
+    <style>
+      .slider-image-container {
+        transition: transform 1.5s ease;
+      }
+    </style>
+  </head>
+  <body class="font-[Poppins] text-gray-900">
+    <!-- Offer Bar -->
+    <div class="bg-black text-white text-center py-4 items-center text-sm relative ">
+      <p>
+        Sign Up and <strong>GET 20% OFF</strong> for your first Order
+        <i
+          id="offer-close"
+          class="fa-solid fa-xmark absolute right-5 top-5 cursor-pointer "
+        ></i>
+      </p>
+    </div>
+
+    <!-- Navigation -->
+   <nav class="sticky top-0 z-50 flex flex-wrap items-center justify-between px-6 py-4 shadow-md bg-white">
+  <!-- Branding -->
+  <div class="flex items-center space-x-3">
+    <img src="./img/icons/branding.png" alt="Logo" class="w-10 h-10 object-contain">
+    <h1 class="text-2xl font-bold" style="color: #570d48;">Fashique</h1>
+
+  </div>
+
+  <!-- Search Bar (full-width on small, fixed on md+) -->
+  <div class="w-full md:w-1/3 my-3 md:my-0 hidden md:block">
+  <div class="relative">
+    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+      <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+    </span>
+    <input 
+      type="text" 
+      class="w-full pl-10 pr-4 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+      placeholder="Search for a product">
+  </div>
+</div>
+  <!-- Desktop Navigation -->
+<div class="hidden md:flex items-center space-x-6 text-gray-700 font-medium">
+  <a href="#" class="hover:text-pink-800">Home</a>
+  <a href="#new-arrival" class="hover:text-pink-800">New Arrival</a>
+  <a href="product.html" class="hover:text-pink-800">Products</a>
+  <a href="collections.html" class="hover:text-pink-800">Collections</a>
+  <a href="contactus.html" class="hover:text-pink-800">Contact Us</a>
+</div>
+  <!--signin-->
+  <div class="hidden md:flex items-center text-gray-700">
+  <a href="cart.html" class="flex flex-col items-center py-1 px-5 hover:text-indigo-600">
+    <i class="fa-solid fa-cart-shopping text-black"></i>
+    <span class="text-sm">Cart</span>
+  </a>
+  <a href="signup.html" class="flex flex-col items-center py-1 px-5 hover:text-indigo-600">
+    <i class="fa-solid fa-user text-black"></i>
+    <span class="text-sm">Profile</span>
+  </a>
+</div>
+  <!-- Mobile Menu Icon -->
+  <div class="md:hidden text-gray-800">
+    <i id="side-navbar-activate" class="fa-solid fa-bars text-2xl cursor-pointer"></i>
+  </div>
+</nav>
+
+ <!--Categories-->
+ <style>
+    .group:hover .group-hover\:block {
+      display: block;
+    }
+  </style>
+   <section class="hidden md:flex md:px-14 py-5 text-base justify-between bg-white shadow">
+  
+  <!-- Women Ethnic with dropdown -->
+  <div class="relative group">
+    <a href="#" class="text-gray-900 hover:text-indigo-600">Women Ethnic</a>
+    <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded hidden group-hover:block z-50">
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Sarees</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Kurtis</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Lehengas</a>
+    </div>
+  </div>
+  <div class="relative group">
+    <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Women Western</a>
+     <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded hidden group-hover:block z-50">
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">All Topwear</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Tops</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Dresses</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">T-shirts</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Jumpsuits</a>
+    </div>
+  </div>
+  <div class="relative group">
+    <a href="collectiond.html" class="text-gray-900 hover:text-indigo-600">Men</a>
+     <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded hidden group-hover:block z-50">
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">All Top Wear</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Shirts</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Tshirts</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Jackets</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Winter Wear</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Sweater and Sweatshirts</a>
+    </div>
+
+  </div>
+  <div class="relative group">
+    <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Kids</a>
+    <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded hidden group-hover:block z-50">
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Dresses</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Boys Sets</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Girls Sets</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Ethnicwear</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Nightwear</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Winter Wear</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Top Wear</a>
+      <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Bottomwear</a>
+    </div>
+  </div>
+ <div class="relative group">
+  <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Home & Kitchen</a>
+  <div class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded hidden group-hover:block z-50">
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Kitchen & Appliances</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">View All</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Kitchen Tools</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Storage & Organizers</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Appliances</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Cookware</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Dinnerware</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Bakeware</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Glasses & Barware</a>
+  </div>
+</div>
+
+ <div class="relative group">
+  <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Beauty & Health</a>
+  <div class="absolute left-0 mt-2 w-56 bg-white shadow-lg rounded hidden group-hover:block z-50">
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Skincare</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">View All</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Face Masks & Peels</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Facecare</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Haircare</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Bath & Shower</a>
+  </div>
+</div>
+
+  <div class="relative group">
+  <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Jewellery & Accessories</a>
+  <div class="absolute left-0 mt-2 w-60 bg-white shadow-lg rounded hidden group-hover:block z-50">
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Jewellery</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">All Jewellery</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Jewellery Set</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Earrings & Studs</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Mangalsutras</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Bangles</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Necklaces</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Rings</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Kamarbandh & Maangtika</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Anklets</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Men Jewellery</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Oxidised</a>
+  </div>
+</div>
+
+  <div class="relative group">
+  <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Bags & Footwears</a>
+  <div class="absolute left-0 mt-2 w-60 bg-white shadow-lg rounded hidden group-hover:block z-50">
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Sports Shoes</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Casual Shoes</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Formal Shoes</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Sandals</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Loafers</a>
+  </div>
+</div>
+
+  <div class="relative group">
+  <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Electronics</a>
+  <div class="absolute left-0 mt-2 w-60 bg-white shadow-lg rounded hidden group-hover:block z-50">
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Mobile & Accessories</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Smartwatches</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Mobile Holders</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Mobile Cases & Covers</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Mobile Chargers</a>
+    <a href="collections.html" class="block px-4 py-2 font-semibold text-indigo-600 hover:bg-gray-100">View All</a>
+  </div>
+</div>
+
+  <div class="relative group">
+  <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Sports & Fitness</a>
+  <div class="absolute left-0 mt-2 w-60 bg-white shadow-lg rounded hidden group-hover:block z-50">
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Sports</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Badminton</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Skating</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Football</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Cricket</a>
+    <a href="collections.html" class="block px-4 py-2 font-semibold text-indigo-600 hover:bg-gray-100">View All</a>
+  </div>
+</div>
+
+  <div class="relative group">
+  <a href="collections.html" class="text-gray-900 hover:text-indigo-600">Car & Motorbike</a>
+  <div class="absolute left-0 mt-2 w-60 bg-white shadow-lg rounded hidden group-hover:block z-50">
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Car Accessories</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Car Covers</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Interior Accessories</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Car Mobile Holders</a>
+    <a href="collections.html" class="block px-4 py-2 hover:bg-gray-100">Car Repair Assistance</a>
+    <a href="collections.html" class="block px-4 py-2 font-semibold text-indigo-600 hover:bg-gray-100">View All</a>
+  </div>
+</div>
+  <div><a href="collections.html" class="text-gray-900 hover:text-indigo-600">Office</a></div>
+</section>
+
+ <!-- Slider -->
+<section class="relative w-full h-[50vh] md:h-[70vh] overflow-hidden">
+  <!-- Slider Container -->
+  <div class="relative w-full h-full overflow-hidden">
+    <!-- Slider Track -->
+    <div id="slider-track" class="flex transition-transform duration-700 ease-in-out h-full" style="width: 300%;">
+      <div class="w-full h-full relative shrink-0">
+        <img src="./img/others/ad03.webp" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+      </div>
+      <div class="w-full h-full relative shrink-0">
+        <img src="./img/others/ad05.webp" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+      </div>
+      <div class="w-full h-full relative shrink-0">
+        <img src="./img/others/ad04.webp" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+      </div>
+    </div>
+  <!-- Text Content -->
+<div class="absolute top-1/4 left-0 right-0 z-20 text-center text-white px-6 md:px-4">
+  <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg leading-tight">
+    Level up your style with our
+  </h1>
+  <h4 class="text-base sm:text-lg md:text-xl mt-3 md:mt-4 mb-5 md:mb-6 drop-shadow-md">
+    Summer Collections
+  </h4>
+  <button class="bg-white text-black px-5 py-2 text-sm sm:text-base font-semibold rounded-md shadow hover:bg-gray-100 transition">
+    Shop Now <i class="fa-solid fa-arrow-right ml-2"></i>
+  </button>
+</div>
+<!-- Navigation Arrows -->
+<div class="absolute top-1/2 left-2 md:left-4 z-30 -translate-y-1/2">
+  <i id="slider-left-activate"
+     class="fa-solid fa-angle-left text-white text-3xl sm:text-4xl md:text-5xl cursor-pointer hover:scale-110 transition-transform"></i>
+</div>
+<div class="absolute top-1/2 right-2 md:right-4 z-30 -translate-y-1/2">
+  <i id="slider-right-activate"
+     class="fa-solid fa-angle-right text-white text-3xl sm:text-4xl md:text-5xl cursor-pointer hover:scale-110 transition-transform"></i>
+</div>
+</section>
+
+<!--category type-->
+    <div class="px-5 py-3 flex justify-around items-center text-center mt-14">
+        <div>
+            <img src="./img/icons/c1.webp" alt="" class="w-full h-25">
+            <p class="mt-4">Ethnic Wear</p>
+        </div>
+        <div>
+            <img src="./img/icons/c2.webp" alt="" >
+            <p class="mt-4">Western Dresse</p>
+        </div>
+        <div>
+            <img src="./img/icons/c3.webp" alt="" >
+            <p class="mt-4">MensWear</p>
+        </div>
+        <div>
+            <img src="./img/icons/c4.webp" alt="" >
+            <p class="mt-4">Footwear</p>
+        </div>
+        <div>
+            <img src="./img/icons/c5.webp" alt="" >
+            <p class="mt-4">Home Decor</p>
+        </div>
+        <div>
+            <img src="./img/icons/c6.webp" alt="" >
+            <p class="mt-4">Beauty</p>
+        </div>
+        <div>
+            <img src="./img/icons/c7.webp" alt="" >
+            <p class="mt-4">Accessories</p>
+        </div>
+        <div>
+            <img src="./img/icons/c8.webp" alt="" >
+            <p class="mt-4">Grocery</p>
+        </div>
+    </div>
+
+<section class="relative mt-10">
+ <h2 class="text-3xl font-bold text-center text-gray-800 mb-10 flex items-center justify-center gap-2">
+  <img src="./img/others/download.jpeg" alt="Brand Logo" class="w-10 h-10 object-contain" />
+  Our Trusted Brands
+</h2>
+
+  <!-- Scroll Buttons -->
+  <button id="scroll-left" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 shadow-md z-10">
+    &#8592;
+  </button>
+  <button id="scroll-right" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 shadow-md z-10">
+    &#8594;
+  </button>
+
+  <!-- Image Grid Container -->
+  <div id="scroll-container" class="overflow-x-auto whitespace-nowrap scroll-smooth flex gap-8 px-10 py-4 ">
+    <img src="./img/others/b2.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b3.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b4.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b5.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b6.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b7.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b8.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b9.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b5.webp" class="w-40 inline-block" alt="">
+    <img src="./img/others/b8.webp" class="w-40 inline-block" alt="">
+  </div>
+</section>
+
+
+<section class="overflow-hidden scroll-wrapper">
+  <div id="thumbnail-scroll"
+       class="flex gap-8 px-16 py-8 w-max animate-scroll-thumbnails">
+
+    <!-- First set of images -->
+    <img src="./img/others/b1.webp" class="border border-gray-300  w-32 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br2.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br8.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br4.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br5.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br6.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br7.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br3.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+
+    <!-- Duplicate set of same images -->
+    <img src="./img/others/b1.webp" class="border border-gray-300 w-32 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br2.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br8.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br4.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br5.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br6.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br7.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+    <img src="./img/others/br3.webp" class="border border-gray-300 w-42 h-32 object-contain rounded-md shadow-lg" alt="Thumbnail">
+
+  </div>
+</section>
+
+<style>
+  @keyframes scroll-thumbnails {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll-thumbnails {
+    animation: scroll-thumbnails 20s linear infinite;
+  }
+
+  .scroll-wrapper:hover .animate-scroll-thumbnails {
+    animation-play-state: paused;
+  }
+</style>
+
+    <!-- Services -->
+   <section class="bg-gray-100 py-12">
+  <div class="text-center mb-10 px-4">
+    <h2 class="text-2xl md:text-3xl font-semibold">We Provide Best</h2>
+    <h2 class="text-2xl md:text-3xl font-semibold">Customer Experiences</h2>
+    <p class="mt-2 text-sm text-gray-600">|| We ensure that our customers have the best shopping experience</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 px-6 max-w-6xl mx-auto text-center">
+    
+    <!-- Feature 1 -->
+    <div class="flex flex-col items-center">
+      <i class="fa-regular fa-circle-check text-4xl text-green-600 mb-3"></i>
+      <h4 class="font-semibold text-lg">Original Products</h4>
+      <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="flex flex-col items-center">
+      <i class="fa-regular fa-face-smile text-4xl text-yellow-500 mb-3"></i>
+      <h4 class="font-semibold text-lg">Satisfaction Guarantee</h4>
+      <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="flex flex-col items-center">
+      <i class="fa-solid fa-broom text-4xl text-blue-500 mb-3"></i>
+      <h4 class="font-semibold text-lg">New Arrival Everyday</h4>
+      <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet.</p>
+    </div>
+
+    <!-- Feature 4 -->
+    <div class="flex flex-col items-center">
+      <i class="fa-solid fa-truck-fast text-4xl text-indigo-600 mb-3"></i>
+      <h4 class="font-semibold text-lg">Fast & Free Shipping</h4>
+      <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet.</p>
+    </div>
+
+  </div>
+</section>
+
+<!--our products-->
+<section class="px-4 py-10 bg-gray-100">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Our Products</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
+    <!-- Product Card -->
+    <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op1.webp" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">MacBook Pro</h3>
+        <p class="text-sm text-gray-500 mb-2">Powerful Apple laptop for professionals and creatives.</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹1,49,999</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Duplicate the card below for other products -->
+    <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op5.webp" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">Sony Bravia 50" 4K Ultra HD</h3>
+        <p class="text-sm text-gray-500 mb-2">Experience crystal-clear visuals with Dolby Vision and Android TV.</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹51,990</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more cards as needed -->
+      <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op13.jpeg" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">Samsung 55" 4K LED TV</h3>
+        <p class="text-sm text-gray-500 mb-2">Ultra HD Smart TV with vibrant display and smart features.</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹42,999</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op6.webp" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">Sonata Analog Watch</h3>
+        <p class="text-sm text-gray-500 mb-2">Stylish and durable wristwatch with leather strap and water resistance, ideal for daily use.</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹1,499</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op4.jpg" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">iPhone 16 Pro</h3>
+        <p class="text-sm text-gray-500 mb-2">Experience next-gen performance with the latest iPhone model.</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹1,49,999</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op2.jpg" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">HP Pavilion 14</h3>
+        <p class="text-sm text-gray-500 mb-2">Powerful and sleek laptop, Ideal for work, study, and entertainment.</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹56,999</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op8.png" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">LG Fridge</h3>
+        <p class="text-sm text-gray-500 mb-2">Frost-free refrigerator with smart inverter compressor and auto defrost</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹24,490</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+     <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+      <img src="./img/others/op9.webp" alt="Product Image" class="w-full h-48 object-cover" />
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-800 mb-1">iPhone 15 Pro</h3>
+        <p class="text-sm text-gray-500 mb-2">Experience next-gen performance with the latest iPhone model.</p>
+        <div class="flex items-center justify-between">
+          <span class="text-indigo-600 font-bold text-lg">₹1,29,999</span>
+          <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+    <!--New Arrival-->
+   <!-- New Arrivals Section -->
+<div class="py-12 px-4 md:px-16 bg-white">
+  <h2 id="new-arrival" class="text-3xl font-bold text-center mb-8">New Arrivals</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+    <!-- Item -->
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/f1.jpg" alt="">
+      <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition"></div>
+      <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition text-sm">
+        Shop Now <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/f7.jpg" alt="">
+      <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition"></div>
+      <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition text-sm">
+        Shop Now <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n1.jpg" alt="">
+      <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition"></div>
+      <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition text-sm">
+        Shop Now <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n7.jpg" alt="">
+      <div class="absolute inset-0 bg-black opacity-0 group-hover:opacity-40 transition"></div>
+      <button class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded opacity-0 group-hover:opacity-100 transition text-sm">
+        Shop Now <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!--womens wear-->
+<section class="px-4 py-10">
+  <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Women's Wear</h2>
+
+  <div class="flex flex-wrap justify-center gap-6">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="products"></div>
+ <div class="bg-white rounded-2xl shadow-lg p-5 text-center transform transition duration-300 hover:scale-105">
+  <div class="relative h-72 md:h-80 rounded-xl overflow-hidden group mb-4">
+
+    <!-- Image 1 -->
+    <img src="./img/others/pr1a.avif"
+         alt="Dress Front"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-1 opacity-100" />
+
+    <!-- Image 2 -->
+    <img src="./img/others/pr1b.avif"
+         alt="Dress Side"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-2 opacity-0" />
+
+    <!-- Image 3 -->
+    <img src="./img/others/pr1c.avif"
+         alt="Dress Back"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-3 opacity-0" />
+
+  </div>
+
+  <h3 class="text-xl font-semibold mb-1 text-gray-800">Elegant Evening Gown</h3>
+  <p class="text-gray-600 text-base mb-3">₹499</p>
+  <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">Add to Cart</button>
+</div>
+<div class="bg-white rounded-2xl shadow-lg p-5 text-center transform transition duration-300 hover:scale-105">
+  <div class="relative h-72 md:h-80 rounded-xl overflow-hidden group mb-4">
+
+    <!-- Image 1 -->
+    <img src="./img/others/pr5a.avif"
+         alt="Dress Front"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-1 opacity-100" />
+
+    <!-- Image 2 -->
+    <img src="./img/others/pr5b.avif"
+         alt="Dress Side"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-2 opacity-0" />
+
+    <!-- Image 3 -->
+    <img src="./img/others/pr5c.avif"
+         alt="Dress Back"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-3 opacity-0" />
+
+  </div>
+
+  <h3 class="text-xl font-semibold mb-1 text-gray-800">Elegant Evening Gown</h3>
+  <p class="text-gray-600 text-base mb-3">₹999</p>
+  <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">Add to Cart</button>
+</div>
+
+<div class="bg-white rounded-2xl shadow-lg p-5 text-center transform transition duration-300 hover:scale-105">
+  <div class="relative h-72 md:h-80 rounded-xl overflow-hidden group mb-4">
+
+    <!-- Image 1 -->
+    <img src="./img/others/pr6a.avif"
+         alt="Dress Front"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-1 opacity-100" />
+
+    <!-- Image 2 -->
+    <img src="./img/others/pr6b.avif"
+         alt="Dress Side"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-2 opacity-0" />
+
+    <!-- Image 3 -->
+    <img src="./img/others/pr6c.avif"
+         alt="Dress Back"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-3 opacity-0" />
+
+  </div>
+
+  <h3 class="text-xl font-semibold mb-1 text-gray-800">Elegant Evening Gown</h3>
+  <p class="text-gray-600 text-base mb-3">₹899</p>
+  <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">Add to Cart</button>
+</div>
+
+<div class="bg-white rounded-2xl shadow-lg p-5 text-center transform transition duration-300 hover:scale-105">
+  <div class="relative h-72 md:h-80 rounded-xl overflow-hidden group mb-4">
+
+    <!-- Image 1 -->
+    <img src="./img/others/pr7a.avif"
+         alt="Dress Front"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-1 opacity-100" />
+
+    <!-- Image 2 -->
+    <img src="./img/others/pr7b.avif"
+         alt="Dress Side"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-2 opacity-0" />
+
+    <!-- Image 3 -->
+    <img src="./img/others/pr7c.avif"
+         alt="Dress Back"
+         class="absolute inset-0 w-full h-full object-cover rounded-xl transition-opacity duration-700 img-3 opacity-0" />
+
+  </div>
+
+  <h3 class="text-xl font-semibold mb-1 text-gray-800">Elegant Evening Gown</h3>
+  <p class="text-gray-600 text-base mb-3">₹599</p>
+  <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">Add to Cart</button>
+</div>
+ </div>
+</section>
+
+<!-- Most Wanted Section -->
+<div class="py-12 px-4 md:px-16 bg-white">
+  <h2 id="most-wanted" class="text-3xl font-bold text-center mb-8">Most Wanted</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <!-- Reusable Item -->
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n8.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/f1.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n1.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n7.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n3.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/f7.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n4.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+    </div>
+
+    <div class="relative group">
+      <img class="w-full rounded-lg" src="img/products/n7.jpg" alt="">
+      <span class="absolute top-2 left-2 bg-red-600 text-white px-2 text-xs rounded">Sale</span>
+      <img class="absolute top-2 right-2 w-5 h-5 like-button cursor-pointer" src="img/icons/blackheart.png" alt="Like">
+    </div>
+  </div>
+</div>
+
+<!-- Limited Offer Section -->
+<div class="bg-yellow-50 py-12 px-4 md:px-16">
+  <div class="flex flex-col md:flex-row items-center gap-8">
+    <div class="md:w-1/2">
+      <img class="rounded-lg" src="img/others/offer.jpg" alt="">
+    </div>
+    <div class="md:w-1/2 text-center md:text-left space-y-4">
+      <h2 class="text-3xl font-bold">Limited Offer</h2>
+      <h4 class="text-lg text-gray-700">35% OFF on this for the first 30 Customers</h4>
+      <button class="bg-black text-white px-6 py-3 rounded-md hover:bg-gray-800">
+        Shop Now <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+    <div class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-6 text-center rounded-lg shadow-xl max-w-3xl mx-auto mt-12 text-white">
+  <h2 class="text-4xl font-extrabold mb-3">✨ Unlock Exclusive Perks!</h2>
+  <p class="text-lg mb-6">
+    Be the first to shop our flash deals, new arrivals, and members-only offers. Straight to your inbox. No spam—promise!
+  </p>
+
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+    <input 
+      type="email" 
+      placeholder="Your email address" 
+      class="px-4 py-2 rounded-md text-gray-900 border border-white focus:outline-none focus:ring-2 focus:ring-yellow-300 w-full sm:w-auto"
+    />
+    <button 
+      class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-2 rounded-md transition duration-300"
+    >
+      Join Now <i class="fas fa-bolt ml-2"></i>
+    </button>
+  </div>
+
+  <p class="text-sm mt-4 text-gray-200">Stay stylish, stay ahead. You can unsubscribe anytime.</p>
+</div>
+
+
+
+<footer class="bg-gray-900 text-gray-300 py-12 mt-16">
+  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+    
+    <!-- Brand Info -->
+    <div>
+      <h2 class="text-2xl font-bold text-white mb-3">Fashique</h2>
+      <p class="text-sm leading-relaxed">
+        The latest styles, trends, and offers – all in one place. Discover your look with Fashique.
+      </p>
+      <div class="flex space-x-4 mt-4 text-xl">
+        <a href="#" class="hover:text-pink-500"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-blue-400"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="hover:text-blue-600"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="hover:text-red-500"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4">Quick Links</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">About Us</a></li>
+        <li><a href="#" class="hover:text-white">Contact</a></li>
+        <li><a href="#" class="hover:text-white">Careers</a></li>
+        <li><a href="#" class="hover:text-white">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- Help -->
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4">Help</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Shipping Info</a></li>
+        <li><a href="#" class="hover:text-white">Returns</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <h3 class="text-lg font-semibold text-white mb-4">Subscribe to our Newsletter</h3>
+      <p class="text-sm mb-3">Get updates on latest trends and offers.</p>
+      <form class="flex flex-col sm:flex-row items-center gap-3">
+        <input type="email" placeholder="Your email address" class="w-full px-4 py-2 rounded-md text-gray-800 focus:outline-none" required>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">Subscribe</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="border-t border-gray-700 mt-10 pt-6 text-center text-sm text-gray-500">
+    &copy; 2025 Fashique. All rights reserved.
+  </div>
+</footer>
+
+       <!--Link Javascript File-->
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fashique</title>
+  <!-- Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- ✅ Navbar -->
+  <nav class="bg-white shadow">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16">
+        <div class="flex">
+          <a href="#" class="flex items-center text-xl font-bold text-indigo-600">Fashique</a>
+          <div class="hidden md:flex space-x-4 ml-10 items-center">
+            <a href="#" class="text-gray-700 hover:text-indigo-600">Home</a>
+            <a href="#" class="text-gray-700 hover:text-indigo-600">Products</a>
+            <a href="#" class="text-gray-700 hover:text-indigo-600">About</a>
+            <a href="#" class="text-gray-700 hover:text-indigo-600">Contact</a>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <input type="text" placeholder="Search..." class="hidden md:block px-2 py-1 border rounded" />
+          <a href="#" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-shopping-cart"></i></a>
+          <a href="#" class="text-gray-700 hover:text-indigo-600"><i class="fas fa-user"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ Filters + Product Grid -->
+  <section class="px-4 py-10">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Our Products</h2>
+
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+      <!-- ✅ Filter Sidebar -->
+      <aside class="hidden lg:block bg-white p-5 rounded shadow h-max">
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">Filters</h3>
+
+        <!-- Category -->
+        <div class="mb-5">
+          <h4 class="font-semibold text-gray-700 mb-2">Category</h4>
+          <div class="space-y-2 text-sm text-gray-600">
+            <label><input type="checkbox" class="mr-2">Laptops</label><br/>
+            <label><input type="checkbox" class="mr-2">Phones</label><br/>
+            <label><input type="checkbox" class="mr-2">TVs</label><br/>
+            <label><input type="checkbox" class="mr-2">Watches</label>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-5">
+          <h4 class="font-semibold text-gray-700 mb-2">Price</h4>
+          <div class="space-y-2 text-sm text-gray-600">
+            <label><input type="checkbox" class="mr-2">Under ₹10,000</label><br/>
+            <label><input type="checkbox" class="mr-2">₹10,000 - ₹50,000</label><br/>
+            <label><input type="checkbox" class="mr-2">₹50,000+</label>
+          </div>
+        </div>
+
+        <!-- Brand -->
+        <div>
+          <h4 class="font-semibold text-gray-700 mb-2">Brand</h4>
+          <div class="space-y-2 text-sm text-gray-600">
+            <label><input type="checkbox" class="mr-2">Apple</label><br/>
+            <label><input type="checkbox" class="mr-2">Samsung</label><br/>
+            <label><input type="checkbox" class="mr-2">Sony</label><br/>
+            <label><input type="checkbox" class="mr-2">HP</label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ✅ Products Grid -->
+      <div class="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
+        <!-- ✅ Product Card -->
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden flex flex-col h-full transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op1.webp" alt="MacBook Pro" class="w-full h-48 object-cover" />
+          <div class="p-4 flex flex-col justify-between flex-grow">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-1">MacBook Pro</h3>
+              <p class="text-sm text-gray-500 mb-2">Powerful Apple laptop for professionals and creatives.</p>
+            </div>
+            <div class="flex items-center justify-between mt-4">
+              <span class="text-indigo-600 font-bold text-lg">₹1,49,999</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🔁 Add more product cards here -->
+         <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op5.webp" alt="Sony TV" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Sony Bravia 50" 4K Ultra HD</h3>
+            <p class="text-sm text-gray-500 mb-2">Experience crystal-clear visuals with Dolby Vision and Android TV.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹51,990</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op13.jpeg" alt="Samsung TV" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Samsung 55" 4K LED TV</h3>
+            <p class="text-sm text-gray-500 mb-2">Ultra HD Smart TV with vibrant display and smart features.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹42,999</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op6.webp" alt="Sonata Watch" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">Sonata Analog Watch</h3>
+            <p class="text-sm text-gray-500 mb-2">Stylish wristwatch with leather strap, water resistance for daily use.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹1,499</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op4.jpg" alt="iPhone 16 Pro" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">iPhone 16 Pro</h3>
+            <p class="text-sm text-gray-500 mb-2">Experience next-gen performance with the latest iPhone model.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹1,49,999</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op2.jpg" alt="HP Pavilion 14" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">HP Pavilion 14</h3>
+            <p class="text-sm text-gray-500 mb-2">Sleek and powerful laptop ideal for work and entertainment.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹56,999</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op8.png" alt="LG Fridge" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">LG Fridge</h3>
+            <p class="text-sm text-gray-500 mb-2">Frost-free refrigerator with smart inverter and auto defrost.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹24,490</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op9.webp" alt="iPhone 15 Pro" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">iPhone 15 Pro</h3>
+            <p class="text-sm text-gray-500 mb-2">Next-gen iPhone with incredible performance and camera.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹1,29,999</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+         <div class="bg-white shadow-lg rounded-xl overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+          <img src="./img/others/op13.jpeg" alt="iPhone 15 Pro" class="w-full h-48 object-cover" />
+          <div class="p-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-1">iPhone 15 Pro</h3>
+            <p class="text-sm text-gray-500 mb-2">Next-gen iPhone with incredible performance and camera.</p>
+            <div class="flex items-center justify-between">
+              <span class="text-indigo-600 font-bold text-lg">₹1,29,999</span>
+              <button class="bg-indigo-600 text-white px-3 py-1 text-sm rounded hover:bg-indigo-700">Buy Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
+
+
+
