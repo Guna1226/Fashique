@@ -14,6 +14,55 @@
 </head>
 <body class="bg-white text-gray-800 font-sans">
 
+      <!-- Navigation -->
+   <nav class="sticky top-0 z-50 flex flex-wrap items-center justify-between px-6 py-4 shadow-md bg-white">
+  <!-- Branding -->
+  <div class="flex items-center space-x-3">
+    <img src="./img/icons/branding.png" alt="Logo" class="w-10 h-10 object-contain">
+    <h1 class="text-2xl font-bold" style="color: #570d48;">Fashique</h1>
+
+  </div>
+
+  <!-- Search Bar (full-width on small, fixed on md+) -->
+  <div class="w-full md:w-1/3 my-3 md:my-0 hidden md:block">
+  <div class="relative">
+    <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+      <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+    </span>
+    <input 
+      type="text" 
+      class="w-full pl-10 pr-4 py-2 border border-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500" 
+      placeholder="Search for a product">
+  </div>
+</div>
+  <!-- Desktop Navigation -->
+<div class="hidden md:flex items-center space-x-6 text-gray-700 font-medium">
+  <a href="./home.html" class="hover:text-pink-800">Home</a>
+  <a href="#new-arrival" class="hover:text-pink-800">New Arrival</a>
+  <a href="./product.html" class="hover:text-pink-800">Products</a>
+  <a href="./collections.html" class="hover:text-pink-800">Collections</a>
+  <a href="./contactus.html" class="hover:text-pink-800">Contact Us</a>
+</div>
+  <!-- Mobile Menu Icon -->
+ <div class="md:hidden text-gray-800">
+  <i id="side-navbar-activate" class="fa-solid fa-bars text-2xl cursor-pointer"></i>
+</div>
+
+<!-- Sidebar -->
+<div id="side-navbar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-md transform -translate-x-full transition duration-300 z-50">
+  <div class="flex justify-end p-4">
+    <i id="side-navbar-close" class="fa-solid fa-xmark text-xl cursor-pointer"></i>
+  </div>
+  <ul class="p-4 space-y-4">
+    <li><a href="index.html" class="text-gray-700">Home</a></li>
+    <li><a href="product.html" class="text-gray-700">Products</a></li>
+    <li><a href="collections.html" class="text-gray-700">Collections</a></li>
+    <li><a href="about.html" class="text-gray-700">About</a></li>
+    <li><a href="contactus.html" class="text-gray-700">Contact</a></li>
+  </ul>
+</div>
+</nav>
+
   <!-- About Section -->
   <section class="px-6 py-16 bg-gray-100 text-center">
     <h1 class="text-4xl font-bold mb-4 text-indigo-600">About Fashique</h1>
@@ -110,17 +159,19 @@
     animateCounter("years", 5);
     animateCounter("team", 25);
   </script>
+  <script>
+  const openMenuBtn = document.getElementById("side-navbar-activate");
+  const closeMenuBtn = document.getElementById("side-navbar-close");
+  const sidebar = document.getElementById("side-navbar");
+
+  openMenuBtn.addEventListener("click", () => {
+    sidebar.classList.remove("-translate-x-full");
+  });
+
+  closeMenuBtn.addEventListener("click", () => {
+    sidebar.classList.add("-translate-x-full");
+  });
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

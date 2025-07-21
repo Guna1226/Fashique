@@ -83,7 +83,7 @@ const form = document.getElementById("auth-form");
       if (valid) {
   if (isLogin) {
     alert("Login successful!");
-    window.location.href = "index.html"; // ✅ Redirect after login
+    window.location.href = "home.html"; // ✅ Redirect after login
   } else {
     alert("Signup successful!");
     form.reset();

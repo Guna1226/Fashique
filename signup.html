@@ -2,63 +2,145 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up & Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Auth</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/a2d9d5e52f.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-gradient-to-br from-purple-200 via-pink-200 to-yellow-100 min-h-screen flex items-center justify-center font-sans">
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-  <div class="bg-white shadow-xl rounded-lg w-full max-w-md p-8">
-    <div class="text-center mb-6">
-      <h1 id="form-title" class="text-3xl font-bold text-purple-700">Sign Up</h1>
-    </div>
-
-    <!-- Signup / Login Form -->
-    <form id="auth-form" novalidate>
-      <!-- Username -->
-      <div class="mb-4">
-        <label class="block text-sm font-semibold mb-1 text-gray-700" for="username">Username</label>
-        <input type="text" id="username" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500" required>
-        <p class="text-red-600 text-sm mt-1 hidden" id="username-error">Username is required (min 3 chars).</p>
+  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <h2 id="form-title" class="text-2xl font-semibold text-center mb-6">Sign Up</h2>
+    
+    <form id="auth-form" class="space-y-4">
+      <div>
+        <label for="username" class="block text-sm font-medium">Username</label>
+        <input type="text" id="username" class="w-full px-4 py-2 border rounded" />
+        <p id="username-error" class="text-red-500 text-sm hidden">Username must be at least 3 characters</p>
       </div>
 
-      <!-- Email -->
-      <div class="mb-4">
-        <label class="block text-sm font-semibold mb-1 text-gray-700" for="email">Email</label>
-        <input type="email" id="email" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500" required>
-        <p class="text-red-600 text-sm mt-1 hidden" id="email-error">Please enter a valid email.</p>
+      <div>
+        <label for="email" class="block text-sm font-medium">Email</label>
+        <input type="email" id="email" class="w-full px-4 py-2 border rounded" />
+        <p id="email-error" class="text-red-500 text-sm hidden">Enter a valid email</p>
       </div>
 
-      <!-- Password -->
-      <div class="mb-4">
-        <label class="block text-sm font-semibold mb-1 text-gray-700" for="password">Password</label>
-        <input type="password" id="password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500" required>
-        <p class="text-red-600 text-sm mt-1 hidden" id="password-error">Password must be at least 6 characters.</p>
+      <div>
+        <label for="password" class="block text-sm font-medium">Password</label>
+        <input type="password" id="password" class="w-full px-4 py-2 border rounded" />
+        <p id="password-error" class="text-red-500 text-sm hidden">Password must be at least 6 characters</p>
       </div>
 
-      <!-- Confirm Password -->
-      <div id="confirm-password-container" class="mb-4">
-        <label class="block text-sm font-semibold mb-1 text-gray-700" for="confirm-password">Confirm Password</label>
-        <input type="password" id="confirm-password" class="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-purple-500">
-        <p class="text-red-600 text-sm mt-1 hidden" id="confirm-password-error">Passwords do not match.</p>
+      <div id="confirm-password-container">
+        <label for="confirm-password" class="block text-sm font-medium">Confirm Password</label>
+        <input type="password" id="confirm-password" class="w-full px-4 py-2 border rounded" />
+        <p id="confirm-password-error" class="text-red-500 text-sm hidden">Passwords do not match</p>
       </div>
 
-      <!-- Submit Button -->
-      <button type="submit" class="w-full py-2 px-4 bg-purple-600 text-white font-semibold rounded hover:bg-purple-700 transition">
-        <span id="submit-text">Sign Up</span>
-      </button>
-
-      <!-- Toggle Link -->
-      <p class="mt-4 text-sm text-center text-gray-600">
-        <span id="toggle-text">Already have an account?</span>
-        <a href="#" id="toggle-link" class="text-purple-600 hover:underline font-medium">Login</a>
-      </p>
+      <button id="submit-text" type="submit" class="w-full bg-blue-600 text-white py-2 rounded">Sign Up</button>
     </form>
+
+    <p class="text-center mt-4 text-sm">
+      <span id="toggle-text">Already have an account?</span>
+      <a href="#" id="toggle-link" class="text-blue-600 font-medium hover:underline">Login</a>
+    </p>
   </div>
 
-  <script src="signup.js">
-    
+  <script>
+    const form = document.getElementById("auth-form");
+    const formTitle = document.getElementById("form-title");
+    const submitText = document.getElementById("submit-text");
+    const toggleText = document.getElementById("toggle-text");
+    const toggleLink = document.getElementById("toggle-link");
+
+    const usernameInput = document.getElementById("username");
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const confirmPasswordInput = document.getElementById("confirm-password");
+
+    const usernameError = document.getElementById("username-error");
+    const emailError = document.getElementById("email-error");
+    const passwordError = document.getElementById("password-error");
+    const confirmPasswordError = document.getElementById("confirm-password-error");
+
+    const confirmPasswordContainer = document.getElementById("confirm-password-container");
+
+    let isLogin = false;
+
+    toggleLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      isLogin = !isLogin;
+
+      if (isLogin) {
+        formTitle.textContent = "Login";
+        submitText.textContent = "Login";
+        toggleText.textContent = "Don't have an account?";
+        toggleLink.textContent = "Sign Up";
+        confirmPasswordContainer.classList.add("hidden");
+      } else {
+        formTitle.textContent = "Sign Up";
+        submitText.textContent = "Sign Up";
+        toggleText.textContent = "Already have an account?";
+        toggleLink.textContent = "Login";
+        confirmPasswordContainer.classList.remove("hidden");
+      }
+
+      clearErrors();
+    });
+
+    function clearErrors() {
+      [usernameError, emailError, passwordError, confirmPasswordError].forEach(err => {
+        err.classList.add("hidden");
+      });
+    }
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      clearErrors();
+
+      const username = usernameInput.value.trim();
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+      const confirmPassword = confirmPasswordInput.value.trim();
+
+      let valid = true;
+
+      if (username.length < 3) {
+        usernameError.classList.remove("hidden");
+        valid = false;
+      }
+
+      if (!validateEmail(email)) {
+        emailError.classList.remove("hidden");
+        valid = false;
+      }
+
+      if (password.length < 6) {
+        passwordError.classList.remove("hidden");
+        valid = false;
+      }
+
+      if (!isLogin && password !== confirmPassword) {
+        confirmPasswordError.classList.remove("hidden");
+        valid = false;
+      }
+
+      if (valid) {
+        if (isLogin) {
+          alert("Login successful!");
+          localStorage.setItem("fashique_username", username); // ✅ Store username
+          window.location.href = "home.html"; // ✅ Redirect
+        } else {
+          alert("Signup successful!");
+          form.reset();
+          toggleLink.click(); // Switch to login
+        }
+      }
+    });
   </script>
 </body>
 </html>
+

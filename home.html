@@ -12,7 +12,6 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
-    
 <style>
   @keyframes fade-in-down {
     0% { opacity: 0; transform: translateY(-10px); }
@@ -72,36 +71,25 @@
   <a href="contactus.html" class="hover:text-pink-800">Contact Us</a>
 </div>
   <!--signin-->
-  <div class="hidden md:flex items-center text-gray-700">
-  <a href="cart.html" class="flex flex-col items-center py-1 px-5 hover:text-indigo-600">
-    <i class="fa-solid fa-cart-shopping text-black"></i>
-    <span class="text-sm">Cart</span>
+  <div class="hidden md:flex items-center text-center text-gray-700 gap-6">
+  <a href="cart.html" class="flex flex-col items-center py-1 px-2  hover:text-indigo-600">
+    <i class="fa-solid fa-cart-shopping text-2xl text-black"></i>
+    <span class="text-sm ">Cart</span>
   </a>
-  <a href="signup.html" class="flex flex-col items-center py-1 px-5 hover:text-indigo-600">
-    <i class="fa-solid fa-user text-black"></i>
-    <span class="text-sm">Profile</span>
-  </a>
-</div>
-<!-- Mobile Menu Icon -->
-<div class="md:hidden text-gray-800">
-  <i id="side-navbar-activate" class="fa-solid fa-bars text-2xl cursor-pointer"></i>
-</div>
 
-<!-- Sidebar -->
-<div id="side-navbar" class="fixed top-0 left-0 w-64 h-full bg-white shadow-md transform -translate-x-full transition duration-300 z-50">
-  <div class="flex justify-end p-4">
-    <i id="side-navbar-close" class="fa-solid fa-xmark text-xl cursor-pointer"></i>
+
+
+  <!-- User Icon and Name -->
+  <div class="flex flex-col items-center">
+    <i class="fa-solid fa-user-circle text-2xl text-gray-700 "></i>
+    <span id="username-display" class="text-sm text-gray-700 hidden"></span>
   </div>
-  <ul class="p-4 space-y-4">
-    <li><a href="#" class="text-gray-700">Home</a></li>
-    <li><a href="product.html" class="text-gray-700">Products</a></li>
-    <li><a href="collections.html" class="text-gray-700">Collections</a></li>
-    <li><a href="about.html" class="text-gray-700">About</a></li>
-    <li><a href="contactus.html" class="text-gray-700">Contact</a></li>
-  </ul>
-</div>
-</nav>
 
+  <!-- Mobile Menu Icon -->
+  <div class="md:hidden text-gray-800">
+    <i id="side-navbar-activate" class="fa-solid fa-bars text-2xl cursor-pointer"></i>
+  </div>
+</nav>
 
  <!--Categories-->
  <style>
@@ -867,21 +855,22 @@
 </footer>
 
 <script>
-  const openMenuBtn = document.getElementById("side-navbar-activate");
-  const closeMenuBtn = document.getElementById("side-navbar-close");
-  const sidebar = document.getElementById("side-navbar");
+    document.addEventListener("DOMContentLoaded", () => {
+      const username = localStorage.getItem("fashique_username");
+      const displayEl = document.getElementById("username-display");
 
-  openMenuBtn.addEventListener("click", () => {
-    sidebar.classList.remove("-translate-x-full");
-  });
-
-  closeMenuBtn.addEventListener("click", () => {
-    sidebar.classList.add("-translate-x-full");
-  });
-</script>
-
+      if (username) {
+        displayEl.textContent = `Hello, ${username}`;
+        displayEl.classList.remove("hidden");
+      } else {
+        window.location.href = "auth.html"; // 🔒 Redirect if not logged in
+      }
+    });
+  </script>
 
        <!--Link Javascript File-->
     <script src="script.js"></script>
+
+
   </body>
 </html>

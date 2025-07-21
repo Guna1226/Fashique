@@ -141,6 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const username = localStorage.getItem("fashique_username");
+    const displayEl = document.getElementById("username-display");
+
+    if (username) {
+      displayEl.textContent = `Hello, ${username}`;
+      displayEl.classList.remove("hidden");
+    }
+  });
+
 
 
 //Collections
