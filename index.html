@@ -13,6 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
     
+    
 <style>
   @keyframes fade-in-down {
     0% { opacity: 0; transform: translateY(-10px); }
@@ -111,9 +112,10 @@
 </div>
 
 <!-- Promo Popup with Countdown and Image -->
-<div id="promo-popup" class="fixed inset-0 bg-black bg-opacity-40 hidden md:flex items-center justify-center z-50">
+<div id="promo-popup" class="md:flex fixed inset-0 bg-black bg-opacity-40 items-center justify-center z-50 hidden">
+
   <div class="relative bg-white bg-opacity-90 backdrop-blur-md rounded-xl p-5 w-11/12 max-w-lg shadow-xl animate-fade-in-down flex flex-col md:flex-row items-center">
-    
+
     <!-- Close Button -->
     <button id="close-popup" class="absolute top-3 right-3 text-gray-700 hover:text-red-600 text-xl">
       <i class="fa-solid fa-xmark"></i>
@@ -832,8 +834,8 @@
   </div>
 </div>
 
-
-    <div class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-6 text-center rounded-lg shadow-xl max-w-3xl mx-auto mt-12 text-white">
+  <section>
+  <div class="bg-gradient-to-r from-purple-500 to-indigo-600 py-12 px-6 text-center rounded-lg shadow-xl max-w-3xl mx-auto mt-12 text-white">
   <h2 class="text-4xl font-extrabold mb-3">✨ Unlock Exclusive Perks!</h2>
   <p class="text-lg mb-6">
     Be the first to shop our flash deals, new arrivals, and members-only offers. Straight to your inbox. No spam—promise!
@@ -846,16 +848,14 @@
       class="px-4 py-2 rounded-md text-gray-900 border border-white focus:outline-none focus:ring-2 focus:ring-yellow-300 w-full sm:w-auto"
     />
     <button 
-      class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-2 rounded-md transition duration-300"
-    >
+      class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-2 rounded-md transition duration-300">
       Join Now <i class="fas fa-bolt ml-2"></i>
     </button>
   </div>
 
   <p class="text-sm mt-4 text-gray-200">Stay stylish, stay ahead. You can unsubscribe anytime.</p>
 </div>
-
-
+</section>
 
 <footer class="bg-gray-900 text-gray-300 py-12 mt-16">
   <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -913,6 +913,50 @@
   </div>
 </footer>
 
+
+
+<script>
+ const closePopupBtn = document.getElementById("close-popup");
+const promoPopup = document.getElementById("promo-popup");
+
+// Show popup only on desktop
+// Show popup only on desktop
+if (window.innerWidth >= 768) {
+  setTimeout(() => {
+    promoPopup.classList.remove("hidden");
+    promoPopup.classList.add("md:flex");
+  }, 1000);
+}
+
+// Close popup
+if (closePopupBtn && promoPopup) {
+  closePopupBtn.addEventListener("click", function () {
+    console.log("Close button clicked");
+    promoPopup.classList.add("hidden");
+    promoPopup.classList.remove("md:flex");
+  });
+}
+
+
+
+  // Countdown timer
+  const countdownEl = document.getElementById("countdown");
+  let countdownTime = 60 * 60 * 7;
+
+  function updateCountdown() {
+    const hours = String(Math.floor(countdownTime / 3600)).padStart(2, '0');
+    const minutes = String(Math.floor((countdownTime % 3600) / 60)).padStart(2, '0');
+    const seconds = String(countdownTime % 60).padStart(2, '0');
+    countdownEl.textContent = `${hours}:${minutes}:${seconds}`;
+    if (countdownTime > 0) {
+      countdownTime--;
+    }
+  }
+
+  setInterval(updateCountdown, 1000);
+</script>
+
+
 <script>
   const openMenuBtn = document.getElementById("side-navbar-activate");
   const closeMenuBtn = document.getElementById("side-navbar-close");
@@ -927,49 +971,7 @@
   });
 </script>
 
-<script>
-  // Show popup after 1.2s
-  window.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-      document.getElementById("promo-popup").classList.remove("hidden");
-    }, 1200);
-  });
-
-  // Close popup
-  document.getElementById("close-popup").addEventListener("click", () => {
-    document.getElementById("promo-popup").classList.add("hidden");
-  });
-
-  // Countdown timer (7 hours)
-  const countdownEl = document.getElementById("countdown");
-  const endTime = new Date().getTime() + 7 * 60 * 60 * 1000; // 7 hours from now
-
-  const updateCountdown = () => {
-    const now = new Date().getTime();
-    const distance = endTime - now;
-
-    if (distance <= 0) {
-      countdownEl.innerText = "EXPIRED";
-      return;
-    }
-
-    const hrs = Math.floor((distance / (1000 * 60 * 60)));
-    const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const secs = Math.floor((distance % (1000 * 60)) / 1000);
-
-    countdownEl.innerText = 
-      `${hrs.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  };
-
-  updateCountdown();
-  setInterval(updateCountdown, 1000);
-</script>
-
-
-
-
-
-       <!--Link Javascript File-->
-    <script src="script.js"></script>
+<script src="script.js"></script>
+   
   </body>
-</html>
+  </html>

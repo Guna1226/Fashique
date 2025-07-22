@@ -2,117 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us - Fashique</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  <style>
-    @keyframes count {
-      from { content: '0'; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promo Popup</title>
+   <!--Tailwind css-->
+    <link  href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!--Link Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body class="bg-gray-100">
 
-  <!-- About Section -->
-  <section class="px-6 py-16 bg-gray-100 text-center">
-    <h1 class="text-4xl font-bold mb-4 text-indigo-600">About Fashique</h1>
-    <p class="max-w-3xl mx-auto text-lg text-gray-700">
-      At Fashique, we believe fashion is a language that speaks for itself. We’re committed to bringing you the latest trends, timeless designs, and quality you can trust.
-    </p>
-  </section>
+<!-- Promo Popup with Countdown and Image -->
+<div id="promo-popup" class="md:flex fixed inset-0 bg-black bg-opacity-40 items-center justify-center z-50 hidden">
 
-  <!-- Meet the Team -->
-  <section class="px-6 py-16">
-    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800">Meet the Team</h2>
-    <div class="grid gap-10 md:grid-cols-3 max-w-6xl mx-auto">
-      <div class="bg-white rounded-lg shadow p-6 text-center">
-        <img src="https://i.pravatar.cc/150?img=32" alt="CEO" class="w-24 h-24 mx-auto rounded-full mb-4">
-        <h3 class="text-xl font-semibold">Shreya Mehta</h3>
-        <p class="text-gray-500">Founder & CEO</p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6 text-center">
-        <img src="https://i.pravatar.cc/150?img=47" alt="Designer" class="w-24 h-24 mx-auto rounded-full mb-4">
-        <h3 class="text-xl font-semibold">Zoya Khan</h3>
-        <p class="text-gray-500">Creative Director</p>
-      </div>
-      <div class="bg-white rounded-lg shadow p-6 text-center">
-        <img src="https://i.pravatar.cc/150?img=12" alt="Tech Lead" class="w-24 h-24 mx-auto rounded-full mb-4">
-        <h3 class="text-xl font-semibold">Vihaan Patel</h3>
-        <p class="text-gray-500">Tech Lead</p>
-      </div>
+  <div class="relative bg-white bg-opacity-90 backdrop-blur-md rounded-xl p-5 w-11/12 max-w-lg shadow-xl animate-fade-in-down flex flex-col md:flex-row items-center">
+
+    <!-- Close Button -->
+    <button id="close-popup" class="absolute top-3 right-3 text-gray-700 hover:text-red-600 text-xl">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- Image -->
+    <div class="w-full md:w-1/2 mb-4 md:mb-0">
+      <img src="./img/others/file.jpg" alt="Hot Sale" class="rounded-lg w-full object-cover">
     </div>
-  </section>
 
-  <!-- Stats Section -->
-  <section class="bg-gradient-to-r from-pink-200 via-indigo-200 to-purple-200 py-16 text-center">
-    <h2 class="text-3xl font-bold mb-8 text-gray-800">Fashique in Numbers</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-6xl mx-auto">
-      <div>
-        <p class="text-5xl font-bold text-pink-600" id="products">0+</p>
-        <p class="mt-2 text-gray-700">Products</p>
+    <!-- Text + Timer -->
+    <div class="md:ml-5 text-center md:text-left w-full md:w-1/2">
+      <span class="inline-block px-3 py-1 mb-2 text-xs font-semibold text-white bg-pink-700 rounded-full uppercase tracking-wider">
+        Limited Time Offer
+      </span>
+
+      <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 mb-1">🔥 Extra 50% OFF</h2>
+      <p class="text-gray-700 font-medium mb-1">Use Code: <span class="bg-yellow-200 px-2 py-1 rounded font-semibold">143GJ2SS</span></p>
+
+      <!-- Countdown -->
+      <div class="text-sm text-gray-600 mb-3">Offer ends in:
+        <span id="countdown" class="font-bold text-pink-700">07:00:00</span>
       </div>
-      <div>
-        <p class="text-5xl font-bold text-indigo-600" id="customers">0+</p>
-        <p class="mt-2 text-gray-700">Happy Customers</p>
-      </div>
-      <div>
-        <p class="text-5xl font-bold text-purple-600" id="years">0+</p>
-        <p class="mt-2 text-gray-700">Years Experience</p>
-      </div>
-      <div>
-        <p class="text-5xl font-bold text-yellow-600" id="team">0+</p>
-        <p class="mt-2 text-gray-700">Team Members</p>
-      </div>
+
+      <!-- CTA Button -->
+      <a href="product.html" class="inline-block px-5 py-2 bg-pink-700 text-white font-medium rounded-full hover:bg-pink-800 transition">
+        Shop Now
+      </a>
+
+      <p class="mt-2 text-xs text-gray-500">Welcome to Fashique Fashion — enjoy your shopping experience!</p>
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- FAQ Section -->
-  <section class="px-6 py-16 bg-white">
-    <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">Frequently Asked Questions</h2>
-    <div class="max-w-4xl mx-auto space-y-6">
-      <div>
-        <h3 class="text-lg font-semibold text-indigo-600">What is Fashique?</h3>
-        <p class="text-gray-700">Fashique is your go-to fashion destination offering a wide range of styles curated with elegance and innovation.</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-indigo-600">Do you offer international shipping?</h3>
-        <p class="text-gray-700">Yes, we ship globally! You can view international shipping options during checkout.</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold text-indigo-600">What’s your return policy?</h3>
-        <p class="text-gray-700">We offer a hassle-free 10-day return policy. Items must be unused and in original packaging.</p>
-      </div>
-    </div>
-  </section>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const closePopupBtn = document.getElementById("close-popup");
+  const promoPopup = document.getElementById("promo-popup");
 
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white text-center py-6">
-    <p>&copy; 2025 Fashique. All rights reserved.</p>
-  </footer>
+  // Show the popup only if screen width is >= 768px (desktop)
+  if (window.innerWidth >= 768) {
+    setTimeout(() => {
+      promoPopup.classList.remove("hidden");
+    }, 1000); // Show after 1 second
+  }
 
-  <!-- Animated Counter Script -->
-  <script>
-    function animateCounter(id, end) {
-      let counter = 0;
-      const el = document.getElementById(id);
-      const duration = 1500;
-      const stepTime = Math.floor(duration / end);
-      const timer = setInterval(() => {
-        counter++;
-        el.textContent = `${counter}+`;
-        if (counter >= end) clearInterval(timer);
-      }, stepTime);
+closePopupBtn.addEventListener("click", function () {
+  console.log("Close button clicked"); // Debug log
+  promoPopup.classList.add("hidden");
+});
+
+  // Countdown timer
+  const countdownEl = document.getElementById("countdown");
+  let countdownTime = 60 * 60 * 7;
+
+  function updateCountdown() {
+    const hours = String(Math.floor(countdownTime / 3600)).padStart(2, '0');
+    const minutes = String(Math.floor((countdownTime % 3600) / 60)).padStart(2, '0');
+    const seconds = String(countdownTime % 60).padStart(2, '0');
+    countdownEl.textContent = `${hours}:${minutes}:${seconds}`;
+    if (countdownTime > 0) {
+      countdownTime--;
     }
+  }
 
-    animateCounter("products", 1000);
-    animateCounter("customers", 1500);
-    animateCounter("years", 5);
-    animateCounter("team", 25);
-  </script>
+  setInterval(updateCountdown, 1000);
+});
+
+</script>
+
+
 
 </body>
 </html>
+
 
 
 
